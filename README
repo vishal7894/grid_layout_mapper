@@ -1,0 +1,21 @@
+Mapping an OCR output of a scanned document into a grid layout, in order to capture the layout information for better document understanding.
+A grid layout (numpy array of predefined shape in taken)
+rows and columns of each text is calculated using:
+ r_i = r_g * (x_left_i + w_i/2)/W
+ c_i = c_g * (y_top_i + h_i/2)/H
+ 
+ r_i --> row of ith word
+ c_i --> col of ith word
+ r_g --> predefined max rows
+ c_g --> predefined max cols
+ x_left_i --> top left x coordinate of ith word
+ w_i --> width of ith word
+ y_top_i --> top left y coordinate of ith word
+ h_i --> height of ith word
+ W --> image width
+ H --> image height
+ 
+ This grid layout preserves the relative position of the words which otherwise gets discarded and helps in document layout understanding.
+ 
+ 
+ can find the paper here https://arxiv.org/abs/1903.12363 for more understanding and further analysis of scanned document. 
